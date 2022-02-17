@@ -25,6 +25,9 @@ for iW = 1:nW
     title(sprintf('\\sigma_W = %.2f', sigmaW(iW)));
     KPFigureLayout
 
+    figure;
+    KPShowAttritionBias(R);    
+
     figure(F)
     L{iW} = sprintf('\\sigma_W = %.2f', sigmaW(iW));
     plot(1:max(R.offer), S(:,1)-C(:,1), '.-');

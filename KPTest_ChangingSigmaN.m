@@ -24,10 +24,15 @@ for iW = 1:nW
     title(sprintf('\\sigma_N = %d', sigmaN(iW)));
     KPFigureLayout
 
+    figure;
+    KPShowAttritionBias(R);    
+
     figure(F);
     L{iW} = sprintf('\\sigma_N = %d', sigmaN(iW));
     plot(1:max(R.offer), S(:,1)-C(:,1), '.-');
     drawnow;
+    
+
 end
 
 legend(L, 'location', 'northwest');
