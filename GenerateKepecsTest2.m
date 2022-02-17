@@ -52,7 +52,7 @@ for iO = 1:nOffers
             W1 = W1 + randn*sigmaN;
             if W1 < iT % quit
                 isQuit(iO) = true; isEarn(iO) = false;
-                TSQ(iO) = iT; TRQ(iO) = offer(iO) - iT;
+                TRQ(iO) = iT; TSQ(iO) = offer(iO) - iT;
                 break;
             end                
         end
