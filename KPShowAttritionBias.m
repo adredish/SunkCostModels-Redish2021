@@ -1,14 +1,15 @@
 function H = KPShowAttritionBias(R)
 
 assert(all(isnan(R.isEarn)==isnan(R.isQuit)));
-k = ~isnan(R.isEarn);  
+k = isnan(R.isEarn);
+R.isEarn(k) = false; R.isQuit(k) = false; R.TSQ(k) = -5;
 
 H = nan(30,30);
 mu = nan(30,1);
 se = nan(30,1);
 
 for iTS = 1:30
-    stillAt = (R.isEarn(k) & (R.offer(k) > iTS)) | (R.isQuit(k) & (R.TSQ(k) > iTS));
+    stillAt = k & (R.isEarn & (R.offer > iTS)) | (R.isQuit & (R.TSQ > iTS));
     H(iTS,:) = histcounts(R.W0(stillAt),0.5:1:30.5);
     H(iTS,:) = H(iTS,:) ./ sum(H(iTS,:));
     mu(iTS) = mean(R.W0(stillAt));
