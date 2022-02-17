@@ -17,7 +17,6 @@ for iTS = 1:30
 end
 
 clf;
-subplot(211);
 imagescWnan(H');
 axis xy
 hold on;
@@ -31,7 +30,3 @@ ylabel(C, 'proportion');
 C.Ticks = [0 0.1];
 
 set(gca, 'fontname', 'Helvetica', 'FontSize', 18);
-
-subplot(212);
-plot(1:30, H(5,:), 1:30, H(20,:)); legend('5','20');
-
