@@ -9,7 +9,7 @@ sigmaW = [8 5 3 1 0.5 0.25 0]; nW = length(sigmaW);
 F = figure; clf; 
 title('changing \sigma_W'); 
 xlabel('Time Spent (s)'); 
-ylabel('SunkCostNess: \Delta(slope)');
+ylabel('Sunk sensitivity: \Delta(slope)');
 hold on
 
 L = cell(nW,1);

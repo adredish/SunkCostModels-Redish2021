@@ -26,6 +26,7 @@ for iW = 1:nW
 
     figure;
     KPShowAttritionBias(R);    
+    title(sprintf('\\sigma_N = %d', sigmaN(iW)));
 
     figure(F);
     L{iW} = sprintf('\\sigma_N = %d', sigmaN(iW));

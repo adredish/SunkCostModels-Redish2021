@@ -7,7 +7,7 @@ function KPTest_DecisionTimeWZ()
 
 decisionTimeWZ = [0,3,5,8];  nD = length(decisionTimeWZ);
 
-figure
+hF = figure;
 title('Changing delay to start'); 
 xlabel('Time Spent (s)'); 
 ylabel('SunkCostNess: \Delta(slope)');
@@ -18,7 +18,10 @@ for iD = 1:nD
     R = GenerateKepecsTest('decisionTimeWZ', decisionTimeWZ(iD));
     pEarn = CalculateKepecs_pEarn(R);
     [S,C] = CalculateKepecs_SunkCostSlopes(pEarn,R);
-
+    
+    figure; KPShowAttritionBias(R); 
+    
+    figure(hF);
     L{iD} = sprintf('\\sigma_n=0 for %d s', decisionTimeWZ(iD));
     plot(1:max(R.offer), S(:,1)-C(:,1), '.-');
     drawnow;
